@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation-menu">
+            <nav class="navigation-menu__wrapper">
+                <button>
+                    <img src="img/menu.png" alt="menu">
+                </button>
+                <p>Текст</p>
+            </nav>
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="card-flip">
+            <h2>Флип Карточки</h2>
+            <div class="cards-wrapper">
+                <div class="card" data-flipped="false">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="img/local-dimming.png" alt="Local Dimming">
+                            <h3>Full-Array Local Dimming</h3>
+                            <p>ZG9 AG9 AG8 XG95 XG85 XG80 XG70 WG6 </p>
+                            <img src="img/flip-1.png" class="flip" alt="flip-1">
+                        </div>
+                        <div class="card-back">
+                            <p>Описание технологии...</p>
+                            <img src="img/flip-1.png" class="flip" alt="flip-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-flipped="false">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Backlight Master Dive</h3>
+                            <p>Обеспечивает глубокий черный цвет и отсутствие засветки вокруг ярких объектов. Отличается
+                                сверхплотным расположением светодиодов, управлением каждым из них и интеллектуальным
+                                алгоритмом локального затемнения.</p>
+                            <img src="img/flip-2.png" class="flip" alt="flip-2">
+                        </div>
+                        <div class="card-back">
+                            <p>Описание технологии...</p>
+                            <img src="img/flip-2.png" class="flip" alt="flip-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-flipped="false">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="img/edge-led.png" alt="Edge LED">
+                            <h3>Edge LED</h3>
+                            <p>ZG9 AG9 AG8 XG95 XG85 XG80 XG70 WG6 </p>
+                            <img src="img/flip-1.png" class="flip" alt="flip-1">
+                        </div>
+                        <div class="card-back">
+                            <p>Описание технологии...</p>
+                            <img src="img/flip-1.png" class="flip" alt="flip-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="continue-button" id="continue-btn" disabled>
+                <p>Продолжить</p>
+            </button>
+        </div>
+        <script src="js/index.js"></script>
+</body>
+
+</html>

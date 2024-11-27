@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation-menu">
+            <nav class="navigation-menu__wrapper">
+                <button>
+                    <img src="img/menu.png" alt="menu">
+                </button>
+                <p>Текст</p>
+            </nav>
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="slider">
+            <h2>Слайдер</h2>
+            <div class="slides-wrapper">
+                <div class="slide" id="slide1">
+                    <img src="img/text-1.png" alt="text-1">
+                    <h3>Текст 1</h3>
+                </div>
+                <div class="slide" id="slide2">
+                    <img src="img/otchet-data.png" alt="text-2">
+                    <h3>Текст 2</h3>
+                </div>
+                <div class="slide" id="slide3">
+                    <img src="img/otchet-zakaz-1.png" alt="text-3">
+                    <h3>Текст 3</h3>
+                </div>
+                <div class="slide" id="slide4">
+                    <img src="img/otchet-zakaz-2.png" alt="text-4">
+                    <h3>Текст 4</h3>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="slide-arrow" disabled>
+                    <img src="img/prev-arrow.png" class="slide-arrow-prev" alt="prev-arrow">
+                </button>
+                <div class="pagination">
+                    <img src="img/ellipse.png" class="ellipse active" data-slide="0" alt="ellipse">
+                    <img src="img/ellipse.png" class="ellipse" data-slide="1" alt="ellipse">
+                    <img src="img/ellipse.png" class="ellipse" data-slide="2" alt="ellipse">
+                    <img src="img/ellipse.png" class="ellipse" data-slide="3" alt="ellipse">
+                </div>
+                <button class="slide-arrow">
+                    <img src="img/next-arrow.png" class="slide-arrow-next" alt="next-arrow">
+                </button>
+            </div>
+            <button class="continue-button" id="continue-btn" disabled>
+                <p>Продолжить</p>
+            </button>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

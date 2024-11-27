@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation-menu">
+            <nav class="navigation-menu__wrapper">
+                <button>
+                    <img src="img/menu.png" alt="menu">
+                </button>
+                <p>Текст</p>
+            </nav>
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="tabs">
+            <h2>Табы</h2>
+            <div class="tabs-wrapper">
+
+                <!-- Кнопки -->
+                <ul class="tab-buttons">
+                    <li data-tab="tab1">Таб 1</li>
+                    <li data-tab="tab2">Таб 2</li>
+                    <li data-tab="tab3">Таб 3</li>
+                    <li data-tab="tab4">Таб 4</li>
+                </ul>
+
+                <!-- Контент табов -->
+                <div class="tab-content-wrapper">
+                    <div class="tab-content" id="tab1">
+                        <h3>1<span>Заголовок нумерованного списка</span></h3>
+                        <ul class="tab-content-list">
+                            <li>– <span>Элемент 1</span></li>
+                            <li>– <span>Элемент 2</span></li>
+                            <li>– <span>Элемент 3</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="tab2">
+                        <h3>2<span>Заголовок нумерованного списка</span></h3>
+                        <ul class="tab-content-list">
+                            <li>– <span>Элемент 1</span></li>
+                            <li>– <span>Элемент 2</span></li>
+                            <li>– <span>Элемент 3</span></li>
+                            <li>– <span>Элемент 4</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="tab3">
+                        <h3>3<span>Заголовок нумерованного списка</span></h3>
+                        <ul class="tab-content-list">
+                            <li>– <span>Элемент 1</span></li>
+                            <li>– <span>Элемент 2</span></li>
+                            <li>– <span>Элемент 3</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="tab4">
+                        <h3>4<span>Заголовок нумерованного списка</span></h3>
+                        <ul class="tab-content-list">
+                            <li>– <span>Элемент 1</span></li>
+                            <li>– <span>Элемент 2</span></li>
+                            <li>– <span>Элемент 3</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button class="continue-button" id="continue-btn" disabled>
+                <p>Продолжить</p>
+            </button>
+        </div>
+        <script src="js/index.js"></script>
+</body>
+
+</html>

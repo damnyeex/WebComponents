@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  height: 744px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-menu {
+  margin-bottom: 30px;
+}
+
+.navigation-menu__wrapper {
+  display: flex;
+  align-items: center;
+  margin: 22px 30px;
+}
+
+.navigation-menu button {
+  background-color: transparent;
+  border: 0;
+}
+
+.navigation-menu p {
+  margin-left: 28px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 1px;
+  background-color: #73BE43;
+  position: relative;
+}
+
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  width: 386px;
+  height: 5px;
+  background-color: #E9262D;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 500px;
+  background-color: #E9262D;
+}
+
+.tabs {
+  margin: 0 30px;
+}
+
+.tabs-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tab-buttons {
+  width: 232px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.tab-buttons li {
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 5px;
+
+}
+
+.tab-buttons li.active {
+  color: #E9262D;
+}
+
+.tab-content-wrapper {
+  flex-grow: 1;
+  margin-bottom: 39px;
+}
+
+.tab-content {
+  display: none;
+  margin-left: 10px;
+}
+
+.tab-content h3 {
+  margin-top: 10px;
+  color: #E9262D
+}
+
+.tab-content h3 span {
+  color: initial;
+  margin-left: 10px;
+}
+
+.tab-content-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tab-content-list li {
+  list-style: none;
+  color: #73BE43;
+}
+
+.tab-content-list li span {
+  color: initial;
+  margin-left: 10px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.continue-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 52px;
+  width: 189px;
+  padding: 10px 20px;
+  margin: 0 auto;
+  border: 1px solid silver;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  margin-top: 15px;
+}
+
+.continue-button p {
+  margin: 0;
+  color: #000000;
+}
+
+.continue-button:disabled {
+  border: 1px solid #FFFFFF;
+}

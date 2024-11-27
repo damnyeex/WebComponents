@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation-menu">
+            <nav class="navigation-menu__wrapper">
+                <button>
+                    <img src="img/menu.png" alt="menu">
+                </button>
+                <p>Текст</p>
+            </nav>
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="accordion">
+            <h2>Аккардион</h2>
+            <div class="accordion-wrapper">
+                <div class="accordion-tab">
+                    <button class="tab" onclick="toggleTab(1)">Таб 1
+                        <img src="img/down.svg" alt="down">
+                    </button>
+                    <div id="tab1" class="tab-content">
+                        <ul>
+                            <li>– <span>Элемент 1</span></li>
+                            <li>– <span>Элемент 2</span></li>
+                            <li>– <span>Элемент 3</span></li>
+                            <li>– <span>Элемент 4</span></li>
+                            <li>– <span>Элемент 5</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-tab">
+                    <button class="tab" onclick="toggleTab(2)">Таб 2
+                        <img src="img/down.svg" alt="down">
+                    </button>
+                    <div id="tab2" class="tab-content">
+                        <ul>
+                            <li>– <span>Элемент 1</span></li>
+                            <li>– <span>Элемент 2</span></li>
+                            <li>– <span>Элемент 3</span></li>
+                            <li>– <span>Элемент 4</span></li>
+                            <li>– <span>Элемент 5</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-tab">
+                    <button class="tab" onclick="toggleTab(3)">Таб 3
+                        <img src="img/down.svg" alt="down">
+                    </button>
+                    <div id="tab3" class="tab-content">
+                        <ul>
+                            <li>– <span>Элемент 1</span></li>
+                            <li>– <span>Элемент 2</span></li>
+                            <li>– <span>Элемент 3</span></li>
+                            <li>– <span>Элемент 4</span></li>
+                            <li>– <span>Элемент 5</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="continue-button" id="continue-btn" disabled>
+                    <p>Продолжить</p>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
