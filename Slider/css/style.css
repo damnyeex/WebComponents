@@ -52,15 +52,11 @@
 
 .slider {
     margin: 0 30px;
-    flex-grow: 1;
 }
 
-.slides-wrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 65px;
-    position: relative;
+.slides-wrapper {   
+    top: 125px;
+    position: relative; 
     height: auto;
 }
 
@@ -70,16 +66,28 @@
 }
 
 .slide {
-    display: none;
-    transition: 0.5s ease ease-in-out;
-    margin-top: 40px;
+    position: absolute; /* Слайды накладываются друг на друга */
+    top: 0;
+    left: 0;
+    width: 100%; /* Растягиваем слайд на всю ширину контейнера */
+    height: 100%; /* Занимаем всю высоту контейнера */
+    display: flex;
+    flex-direction: column; /* Расположение контента в колонку */
+    justify-content: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    opacity: 0; /* По умолчанию слайды скрыты */
+    pointer-events: none; /* Отключаем взаимодействие */
+    transition: opacity 0.5s ease-in-out; /* Анимация переключения */
 }
 
 .slide.active {
-    display: block;
+    opacity: 1; /* Показываем активный слайд */
+    pointer-events: auto; /* Делает слайд доступным для кликов */
 }
 
 .controls {
+    position: relative;
+    top: 285px;
     width: 940px;
     height: 40px;
     display: flex;
@@ -106,6 +114,8 @@
 }
 
 .continue-button {
+    position: relative;
+    top: 295px;
     display: flex;
     justify-content: center;
     align-items: center;

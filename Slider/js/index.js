@@ -4,25 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevButton = document.querySelector(".slide-arrow-prev").closest("button");
   const nextButton = document.querySelector(".slide-arrow-next").closest("button");
   const continueButton = document.getElementById("continue-btn");
-  const slidesWrapper = document.querySelector(".slides-wrapper");
   let currentIndex = 0;
-
-  const adjustSlideHeight = () => {
-    const maxHeight = Array.from(slides).reduce((height, slide) => {
-      return Math.max(height, slide.offsetHeight);
-    }, 0);
-    slidesWrapper.style.height = `${maxHeight}px`
-  };
-
-
 
   const updateSlider = (index) => {
     slides.forEach((slide, i) => {
-      slide.style.display = i === index ? "block" : "none";
+      slide.classList.toggle("active", i === index);
     });
+
     paginationItems.forEach((item, i) => {
       item.classList.toggle("active", i === index);
     });
+
     prevButton.disabled = index === 0;
     nextButton.disabled = index === slides.length - 1;
     continueButton.disabled = index !== slides.length - 1;
@@ -42,15 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  paginationItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      currentIndex = index;
+  paginationItems.forEach((item, i) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentIndex = i;
       updateSlider(currentIndex);
     });
   });
-
-  adjustSlideHeight();
-  window.addEventListener("resize", adjustSlideHeight);
 
   updateSlider(currentIndex);
 });
