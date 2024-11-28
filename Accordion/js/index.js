@@ -1,28 +1,34 @@
-let tabsOpened = [false, false, false];
+document.addEventListener("DOMContentLoaded", () => {
 
-function toggleTab(tabIndex) {
-  const tabContent = document.getElementById(`tab${tabIndex}`);
-  const accordionTab = tabContent.closest(".accordion-tab")
-  if (tabsOpened[tabIndex - 1]) {
-    tabContent.classList.remove("active");
-    accordionTab.classList.remove("active")
-    tabsOpened[tabIndex - 1] = false;
-  } else {
-    tabContent.classList.add("active");
-    accordionTab.classList.add("active")
-    tabsOpened[tabIndex - 1] = true;
-  }
-  checkButtonState();
-}
-
-function checkButtonState() {
-  const allTabsOpened = tabsOpened.every((tab) => tab);
+  const tabs = document.querySelectorAll(".accordion-tab");
   const continueBtn = document.getElementById("continue-btn");
-  if (allTabsOpened) {
-    continueBtn.classList.remove("disabled");
-    continueBtn.disabled = false;
-  } else {
-    continueBtn.classList.add("disabled");
-    continueBtn.disabled = true;
+
+  let tabsOpened = Array(tabs.length).fill(false);
+
+  tabs.forEach((tab, index) => {
+    const button = tab.querySelector(".tab");
+    const content = tab.querySelector(".tab-content");
+
+    button.addEventListener("click", () => {
+      if (tabsOpened[index]) {
+        content.classList.remove("active");
+        tab.classList.remove("active");
+        tabsOpened[index] = false;
+      } else {
+
+        content.classList.add("active");
+        tab.classList.add("active");
+        tabsOpened[index] = true;
+      }
+
+      checkButtonState();
+    });
+
+  });
+
+  function checkButtonState() {
+    const allTabsOpened = tabsOpened.every(tab => tab);
+    continueBtn.disabled = !allTabsOpened;
+    continueBtn.classList.toggle("disabled", !allTabsOpened);
   }
-}
+});

@@ -1,0 +1,9 @@
+@import './base.css';
+
+body {
+  width: 1000px;
+  height: 700px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

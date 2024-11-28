@@ -1,49 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let currentSlide = 0;
   const slides = document.querySelectorAll(".slide");
-  const pagination = document.querySelectorAll(".pagination");
-  const prevBtn = document.querySelector(".slide-arrow-prev");
-  const nextBtn = document.querySelector(".slide-arrow-next");
-  const continueBtn = document.querySelector("#continue-btn");
+  const paginationItems = document.querySelectorAll(".pagination .ellipse");
+  const prevButton = document.querySelector(".slide-arrow-prev").closest("button");
+  const nextButton = document.querySelector(".slide-arrow-next").closest("button");
+  const continueButton = document.getElementById("continue-btn");
+  const slidesWrapper = document.querySelector(".slides-wrapper");
+  let currentIndex = 0;
+
+  const adjustSlideHeight = () => {
+    const maxHeight = Array.from(slides).reduce((height, slide) => {
+      return Math.max(height, slide.offsetHeight);
+    }, 0);
+    slidesWrapper.style.height = `${maxHeight}px`
+  };
 
 
-  function updateSlider() {
-    slides.forEach((slide, index) => {
-      slide.classList.toggle("active", index === currentSlide);
+
+  const updateSlider = (index) => {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? "block" : "none";
     });
-
-    pagination.forEach((ellipse, index) => {
-      ellipse.classList.toggle("active", index === currentSlide);
+    paginationItems.forEach((item, i) => {
+      item.classList.toggle("active", i === index);
     });
+    prevButton.disabled = index === 0;
+    nextButton.disabled = index === slides.length - 1;
+    continueButton.disabled = index !== slides.length - 1;
+  };
 
-    prevBtn.disabled = currentSlide === 0;
-    nextBtn.disabled = currentSlide === 0;
-
-    if (currentSlide === slides.length - 1) {
-      continueBtn.disabled = false;
-    }
-  }
-
-  nextBtn.addEventListener("click", () => {
-    if (currentSlide < slides.length - 1) {
-      currentSlide++;
-      updateSlider();
-    }
-  });
-
-  prevBtn.addEventListener("click", () => {
-    if (currentSlide > 0) {
-      currentSlide--;
-      updateSlider();
+  prevButton.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      updateSlider(currentIndex);
     }
   });
 
-  pagination.forEach((ellipse, index) => {
-    ellipse.addEventListener("click", () => {
-      currentSlide = index;
-      updateSlider();
+  nextButton.addEventListener("click", () => {
+    if (currentIndex < slides.length - 1) {
+      currentIndex += 1;
+      updateSlider(currentIndex);
+    }
+  });
+
+  paginationItems.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider(currentIndex);
     });
   });
 
-  updateSlider();
+  adjustSlideHeight();
+  window.addEventListener("resize", adjustSlideHeight);
+
+  updateSlider(currentIndex);
 });

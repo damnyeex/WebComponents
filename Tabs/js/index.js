@@ -5,18 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let visitedTabs = new Set();
 
-  tabs.forEach((tab) => {
+  tabs[0].classList.add("active");
+  contents[0].classList.add("active");
+
+  visitedTabs.add(0);
+
+  tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => {
       tabs.forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
 
-      const target = tab.dataset.tab;
-      contents.forEach((content) => {
-        content.classList.remove("active");
-        if (content.id === target) content.classList.add("active");
+      contents.forEach((content, i) => {
+        content.classList.remove("active")
+        if (i === index) content.classList.add("active")
       });
 
-      visitedTabs.add(target);
+      visitedTabs.add(index);
 
       if (visitedTabs.size === tabs.length) {
         continueButton.disabled = false;

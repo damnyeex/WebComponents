@@ -58,7 +58,10 @@
 .slides-wrapper {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-bottom: 65px;
+    position: relative;
+    height: auto;
 }
 
 .slides-wrapper h3 {
@@ -68,7 +71,6 @@
 
 .slide {
     display: none;
-    max-width: 100%;
     transition: 0.5s ease ease-in-out;
     margin-top: 40px;
 }
@@ -99,7 +101,8 @@
 }
 
 .pagination .ellipse.active {
-    color: #FFFF;
+    background-color: #FFFFFF;
+    opacity: 1;
 }
 
 .continue-button {
