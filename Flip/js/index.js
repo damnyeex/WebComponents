@@ -1,42 +1,52 @@
-const cards = document.querySelectorAll('.card');
-const continueBtn = document.getElementById("continue-btn");
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll('.card');
+    const continueBtn = document.getElementById("continue-btn");
 
-cards.forEach(card => {
-    const cardInner = card.querySelector(".card-inner");
-    const flipButtons = card.querySelectorAll(".flip");
+    cards.forEach(card => {
+        const cardInner = card.querySelector(".card-inner");
+        const flipButtons = card.querySelectorAll(".flip");
 
-    flipButtons.forEach((buttons) => {
-        buttons.addEventListener("click", () => {
-            isFlipped = card.getAttribute('data-flipped') === 'true';
+        flipButtons.forEach((buttons) => {
+            buttons.addEventListener("click", () => {
+                isFlipped = card.getAttribute('data-flipped') === 'true';
 
-            if (isFlipped) {
-                card.setAttribute('data-flipped', "false");
-                cardInner.classList.remove('flipped');
+                if (isFlipped) {
+                    card.setAttribute('data-flipped', "false");
+                    cardInner.classList.remove('flipped');
 
-            } else {
+                } else {
 
-                card.setAttribute("data-flipped", "true");
-                cardInner.classList.add('flipped')
-            }
+                    card.setAttribute("data-flipped", "true");
+                    cardInner.classList.add('flipped')
+                }
 
+                checkCardStates();
+            });
+        });
 
-        })
-    })
+        card.addEventListener('mouseenter', () => {
+            card.setAttribute("data-flipped", "true");
+            cardInner.classList.add("flipped");
+            checkCardStates();
+        });
+    });
 
+    function checkCardStates() {
+        const allFlipped = Array.from(cards).every(
+            (card) => card.getAttribute("data-flipped") === "true"
+        );
 
-    card.addEventListener('mouseenter', () => {
-        card.setAttribute("data-flipped", "true");
-        checkAllFlipped();
+        const allUnflipped = Array.from(cards).every(
+            card => card.getAttribute("data-flipped") === "false"
+        );
 
-    })
+        if (allFlipped) {
 
+            continueBtn.disabled = false;
+
+        } else if (allUnflipped) {
+
+            continueBtn.disabled = true;
+        }
+    }
 });
-
-function checkAllFlipped() {
-    const allFlipped = Array.from(cards).every(
-        (card) => card.getAttribute("data-flipped") === "true"
-
-    );
-    continueBtn.disabled = !allFlipped;
-
-}

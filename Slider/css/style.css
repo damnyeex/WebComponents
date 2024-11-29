@@ -54,9 +54,9 @@
     margin: 0 30px;
 }
 
-.slides-wrapper {   
+.slides-wrapper {
     top: 125px;
-    position: relative; 
+    position: relative;
     height: auto;
 }
 
@@ -66,23 +66,34 @@
 }
 
 .slide {
-    position: absolute; /* Слайды накладываются друг на друга */
+    position: absolute;
+    /* Слайды накладываются друг на друга */
     top: 0;
     left: 0;
-    width: 100%; /* Растягиваем слайд на всю ширину контейнера */
-    height: 100%; /* Занимаем всю высоту контейнера */
+    width: 100%;
+    /* Растягиваем слайд на всю ширину контейнера */
+    height: 100%;
+    /* Занимаем всю высоту контейнера */
     display: flex;
-    flex-direction: column; /* Расположение контента в колонку */
-    justify-content: center; /* Центрирование по вертикали */
-    align-items: center; /* Центрирование по горизонтали */
-    opacity: 0; /* По умолчанию слайды скрыты */
-    pointer-events: none; /* Отключаем взаимодействие */
-    transition: opacity 0.5s ease-in-out; /* Анимация переключения */
+    flex-direction: column;
+    /* Расположение контента в колонку */
+    justify-content: center;
+    /* Центрирование по вертикали */
+    align-items: center;
+    /* Центрирование по горизонтали */
+    opacity: 0;
+    /* По умолчанию слайды скрыты */
+    pointer-events: none;
+    /* Отключаем взаимодействие */
+    transition: opacity 0.5s ease-in-out;
+    /* Анимация переключения */
 }
 
 .slide.active {
-    opacity: 1; /* Показываем активный слайд */
-    pointer-events: auto; /* Делает слайд доступным для кликов */
+    opacity: 1;
+    /* Показываем активный слайд */
+    pointer-events: auto;
+    /* Делает слайд доступным для кликов */
 }
 
 .controls {
@@ -109,6 +120,7 @@
 }
 
 .pagination .ellipse.active {
+    border-radius: 10px;
     background-color: #FFFFFF;
     opacity: 1;
 }
