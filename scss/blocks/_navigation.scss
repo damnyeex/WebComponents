@@ -20,14 +20,14 @@
     @include mixins.fontOptions("Golos-Medium", 14px, 400, 20px)
 }
 
-.progress-bar {
+.navigation-progress-bar {
     width: 100%;
     height: 1px;
     background-color: #73BE43;
     position: relative;
 }
 
-.progress-bar::before {
+.navigation-progress-bar::before {
     content: '';
     position: absolute;
     width: 386px;
@@ -35,10 +35,25 @@
     background-color: #E9262D;
 }
 
-.progress-bar::after {
+.navigation-progress-bar::after {
     content: '';
     position: absolute;
     height: 1px;
     width: 500px;
+    background-color: #E9262D;
+}
+
+.bottom-progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #73BE43;
+    position: relative;
+}
+
+.bottom-progress-bar::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 5px;
     background-color: #E9262D;
 }

@@ -1,10 +1,11 @@
 @charset "UTF-8";
 
-@use 'reset';
 @use 'fonts';
 @use 'mixins';
+@use 'blocks/navigation';
+@use 'blocks/button';
 @use 'blocks/tabs';
 @use 'blocks/slider';
 @use 'blocks/flip';
 @use 'blocks/accordion';
-@use 'blocks/navigation'
+

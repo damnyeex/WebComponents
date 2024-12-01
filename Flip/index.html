@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/dist/css/style.css">
+    <link rel="stylesheet" href="../dist/css/style.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
                 </button>
                 <p>Текст</p>
             </nav>
-            <div class="progress-bar"></div>
+            <div class="navigation-progress-bar"></div>
         </div>
 
         <div class="card-flip">
@@ -26,9 +26,9 @@
                 <div class="card" data-flipped="false">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="img/local-dimming.png" alt="Local Dimming">
+                            <img src="img/local-dimming.png" class="card-img" alt="Local Dimming">
                             <h3>Full-Array Local Dimming</h3>
-                            <p>ZG9 AG9 AG8 XG95 XG85 XG80 XG70 WG6 </p>
+                            <p>ZG9 AG9 AG8 <span>XG95</span> XG85 XG80 XG70 WG6</p>
                             <img src="img/flip-1.png" class="flip" alt="flip-1">
                         </div>
                         <div class="card-back">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="card" data-flipped="false">
                     <div class="card-inner">
-                        <div class="card-front">
+                        <div class="card-front backlight ">
                             <h3>Backlight Master Dive</h3>
                             <p>Обеспечивает глубокий черный цвет и отсутствие засветки вокруг ярких объектов. Отличается
                                 сверхплотным расположением светодиодов, управлением каждым из них и интеллектуальным
@@ -55,9 +55,9 @@
                 <div class="card" data-flipped="false">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="img/edge-led.png" alt="Edge LED">
+                            <img src="img/edge-led.png" class="card-img" alt="Edge LED">
                             <h3>Edge LED</h3>
-                            <p>ZG9 AG9 AG8 XG95 XG85 XG80 XG70 WG6 </p>
+                            <p>ZG9 AG9 AG8 <span>XG95 XG85 XG80 XG70</span> WG6</p>
                             <img src="img/flip-1.png" class="flip" alt="flip-1">
                         </div>
                         <div class="card-back">
@@ -71,7 +71,9 @@
                 <p>Продолжить</p>
             </button>
         </div>
-        <script src="js/index.js"></script>
+        <div class="bottom-progress-bar"></div>
+    </div>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
