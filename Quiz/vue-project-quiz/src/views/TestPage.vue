@@ -21,16 +21,6 @@
     </div>
     <!-- Кнопка для проверки ответов -->
     <button class="submit-button" @click="submitAnswers">Завершить тест</button>
-    <!-- Результат теста -->
-    <div v-if="result !== null" class="result">
-      <h2>Результаты теста:</h2>
-      <p>
-        Вы ответили правильно на {{ result }} из
-        {{ questions.length }} вопросов.
-      </p>
-      <p v-if="result >= 7">Поздравляем! Вы успешно прошли тест.</p>
-      <p v-else>К сожалению, вы не прошли тест. Попробуйте снова!</p>
-    </div>
   </div>
 </template> 
 
@@ -50,11 +40,65 @@ export default {
           answers: ["8", "9", "7"],
           correctAnswer: "8",
         },
+        {
+          text: "Какое животное является символом 2024 года?",
+          answers: ["Кролик", "Дракон", "Крыса"],
+          correctAnswer: "Дракон",
+        },
+        {
+          text: "Какое животное является символом 2024 года?",
+          answers: ["Кролик", "Дракон", "Крыса"],
+          correctAnswer: "Дракон",
+        },
+        {
+          text: "Какое животное является символом 2024 года?",
+          answers: ["Кролик", "Дракон", "Крыса"],
+          correctAnswer: "Дракон",
+        },
+        {
+          text: "Какое животное является символом 2024 года?",
+          answers: ["Кролик", "Дракон", "Крыса"],
+          correctAnswer: "Дракон",
+        },
+        {
+          text: "Какое животное является символом 2024 года?",
+          answers: ["Кролик", "Дракон", "Крыса"],
+          correctAnswer: "Дракон",
+        },
+        {
+          text: "Какое животное является символом 2024 года?",
+          answers: ["Кролик", "Дракон", "Крыса"],
+          correctAnswer: "Дракон",
+        },
+        {
+          text: "Какое животное является символом 2024 года?",
+          answers: ["Кролик", "Дракон", "Крыса"],
+          correctAnswer: "Дракон",
+        },
+        {
+          text: "Какое животное является символом 2024 года?",
+          answers: ["Кролик", "Дракон", "Крыса"],
+          correctAnswer: "Дракон",
+        },
       ],
       userAnswers: [],
       result: null,
+      bestResult: null,
     };
   },
+
+  computed: {
+    attempts() {
+      return parseInt(localStorage.getItem("attempts") || 1);
+    },
+  },
+
+  mounted() {
+    const storedBestResult = localStorage.getItem("bestResult");
+    this.bestResult =
+      storedBestResult !== null ? parseInt(storedBestResult, 10) : null;
+  },
+
   methods: {
     submitAnswers() {
       this.result = this.questions.reduce((score, question, index) => {
@@ -62,6 +106,38 @@ export default {
           score + (this.userAnswers[index] === question.correctAnswer ? 1 : 0)
         );
       }, 0);
+
+      const isTestPassed = this.result >= 7;
+
+      let attempts = this.attempts;
+
+      const percentage = this.result
+        ? (this.result / this.questions.length) * 100
+        : 0;
+      if (
+        !isTestPassed &&
+        (this.bestResult === null || percentage > this.bestResult)
+      ) {
+        this.bestResult = percentage;
+        localStorage.setItem("bestResult", this.bestResult.toString());
+      }
+
+      if (isTestPassed) {
+        localStorage.setItem("attempts", 0);
+      } else {
+        attempts++;
+        localStorage.setItem("attempts", attempts);
+      }
+
+      this.$router.push({
+        path: "/result",
+        query: {
+          correctAnswers: this.result,
+          totalQuestions: this.questions.length,
+          attempts: attempts,
+          bestResult: isTestPassed ? null : this.bestResult,
+        },
+      });
     },
   },
 };

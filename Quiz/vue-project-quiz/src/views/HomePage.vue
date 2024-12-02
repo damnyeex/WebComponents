@@ -35,6 +35,9 @@ export default {
 
 .home h1 {
   margin-bottom: 30px;
+  font-family: "Golos-Bold";
+  font-size: 38px;
+  font-weight: 700;
 }
 
 .info-box {
